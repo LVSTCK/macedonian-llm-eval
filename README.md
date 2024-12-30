@@ -1,5 +1,7 @@
 # Macedonian LLM eval 🇲🇰
 
+This repository is adapted from the original work by Aleksa Gordić. If you find this work useful, please consider citing or acknowledging the original source.
+
 ## What is currently covered: TODO
 * Common sense reasoning: `Hellaswag`, `Winogrande`, `PIQA`, `OpenbookQA`, `ARC-Easy`, `ARC-Challenge`
 * World knowledge: `NaturalQuestions`, `TriviaQA`
@@ -11,8 +13,6 @@ Contact: !!! TODO
 
 In Macedonian: TODO
 
-TODO!!!
-```
 ## IMPORTANT
 
 * running this this will eat your google cloud credits or will bill you if you're already in the billing mode (this happens after you spend free credits and then deliberately enable billing again).
@@ -89,9 +89,9 @@ First let's setup a minimal Python program that makes sure you can run Google Tr
 
     a.) Open a terminal (if on Windows use the `WSL` terminal, if you're on Linux just use your terminal conda will already be in the PATH)
 
-    b.) Run `conda create -n open_nllb python=3.10 -y`
+    b.) Run `conda create -n sr_mk_translate python=3.10 -y`
 
-    c.) Run `conda activate open_nllb`
+    c.) Run `conda activate sr_mk_translate`
 
     d.) Run  `pip install google-cloud-translate`
 
@@ -111,7 +111,7 @@ response = client.translate_text(
         "contents": ["How do you do? Translate this."],
         "mime_type": "text/plain",
         "source_language_code": "en-US",
-        "target_language_code": "sl",
+        "target_language_code": "mk",
     }
 )
 value_translated = response.translations[0].translated_text
