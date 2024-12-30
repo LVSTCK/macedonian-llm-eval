@@ -4,7 +4,7 @@ from pathlib import Path
 from google.cloud import translate_v2 as translate
 from typing import Dict, List, Any
 import logging
-from .config import DATASET_CONFIGS
+from config import DATASET_CONFIGS
 
 class DatasetTranslator:
     def __init__(self, source_lang: str = 'sr', target_lang: str = 'mk'):
@@ -30,7 +30,7 @@ class DatasetTranslator:
             
         for attempt in range(retry_count):
             try:
-                time.sleep(0.1)  # Basic rate limiting
+                time.sleep(0.1)  # Naive rate limiting
                 result = self.client.translate(
                     text, 
                     source_language=self.source_lang,

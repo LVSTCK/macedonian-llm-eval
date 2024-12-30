@@ -64,10 +64,6 @@ class SuperGlue(datasets.GeneratorBasedBuilder):
             features=["goal", "choices", "gold"],
         ),
         MacedonianLLMConfig(
-            name="triviaqa",
-            features=["question", "answer"],
-        ),
-        MacedonianLLMConfig(
             name="winogrande",
             features=["sentence", "option1", "option2", "answer"],
         ),
@@ -92,14 +88,6 @@ class SuperGlue(datasets.GeneratorBasedBuilder):
             features["goal"] = datasets.Value("string")
             features["choices"] = datasets.features.Sequence(datasets.Value("string"))
             features["gold"] = datasets.Value("int32")
-        elif self.config.name == "triviaqa":
-            features["question"] = datasets.Value("string")
-            features["answer"] = dict(
-                {
-                    "value": datasets.Value("string"),
-                    "aliases": datasets.features.Sequence(datasets.Value("string"))
-                }
-            )
         elif self.config.name == "winogrande":
             features["sentence"] = datasets.Value("string")
             features["option1"] = datasets.Value("string")
@@ -113,15 +101,14 @@ class SuperGlue(datasets.GeneratorBasedBuilder):
         )
 
     _DATASET_PATHS = {
-        "arc_challenge": ["arc_challenge_test_partial_0_1171_end.jsonl"],
-        "arc_easy": ["arc_easy_test_partial_0_2375_end.jsonl"],
-        "boolq": ["boolq_test_partial_0_3269_end.jsonl"],
-        "hellaswag": ["hellaswag_test_partial_0_10041_end.jsonl"],
-        "nq_open": ["nq_open_test_partial_0_3609_end_end.jsonl", "nq_open_train_partial_0_87924_end.jsonl"],
-        "openbookqa": ["openbookqa_test_partial_0_499_end.jsonl"],
-        "piqa": ["piqa_test_partial_0_1837_end.jsonl"],
-        "triviaqa": ["triviaqa_test_partial_0_17943_end.jsonl", "triviaqa_train_partial_0_138383_end.jsonl"],
-        "winogrande": ["winogrande_test_partial_0_1266_end.jsonl"],
+        "arc_challenge": ["arc_challenge_test_mk.jsonl"],
+        "arc_easy": ["arc_easy_test_mk_end.jsonl"],
+        "boolq": ["boolq_test_mk_end.jsonl"],
+        "hellaswag": ["hellaswag_test_mk.jsonl"],
+        "nq_open": ["nq_open_test_mk.jsonl", "nq_open_train_mk.jsonl"],
+        "openbookqa": ["openbookqa_mk.jsonl"],
+        "piqa": ["piqa_test_mk.jsonl"],
+        "winogrande": ["winogrande_test_mk.jsonl"],
     }
 
     def _split_generators(self, dl_manager):
@@ -203,17 +190,6 @@ class SuperGlue(datasets.GeneratorBasedBuilder):
                         "goal": goal,
                         "choices": choices,
                         "gold": gold,
-                    }
-                elif self.config.name == "triviaqa":
-                    question = row["question"]
-                    answer = row["answer"]
-                    pruned_answer = {
-                        "value": answer["value"],
-                        "aliases": answer["aliases"]
-                    }
-                    yield id, {
-                        "question": question,
-                        "answer": pruned_answer,
                     }
                 elif self.config.name == "winogrande":
                     sentence = row["sentence"]
