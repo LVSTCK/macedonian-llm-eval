@@ -12,7 +12,7 @@ Contact: !!! TODO
 In Macedonian: TODO
 
 TODO!!!
-``````
+```
 ## IMPORTANT
 
 * running this this will eat your google cloud credits or will bill you if you're already in the billing mode (this happens after you spend free credits and then deliberately enable billing again).
@@ -20,8 +20,6 @@ TODO!!!
 * you can use your free credits to translate 500.000 chars / month!
 
 * if this is the first time you're creating a gcloud project you'll have 300$ of free credits!
-
-* sync with Aleksa in [Discord](https://discord.gg/peBrCpheKE) in slovenian-eval channel on which tasks to tackle next.
 
 ## Prerequisites
 
