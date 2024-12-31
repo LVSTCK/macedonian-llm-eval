@@ -28,6 +28,11 @@ To evaluate a specific language model on a specific task run:
 python3 main.py --language "Macedonian" --model gpt2 --tasks hellaswag --batch_size 1
 ```
 
+Note that gpt is already supported in the lm_eval; if you wish to run a huggingface model then run:
+```
+python3 main.py --language "Macedonian" --model hf --model_args "pretrained=EleutherAI/gpt-neo-125m" --tasks hellaswag, arc_easy --batch_size 1
+```
+
 
 ## Translation (optional; In case you want to translate any other dataset) 
 
