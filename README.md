@@ -121,22 +121,9 @@ pip install -e .
 ```
 
 ### Run Evaluation
-To evaluate a specific language model, use the lm_eval command-line tool with the following structure:
+To evaluate a specific language model on a specific task run:
 ```
-lm_eval --model hf \
-    --model_args pretrained=<model_name> \
-    --tasks <task_name> \
-    --device <device> \
-    --batch_size <batch_size>
-```
-
-### Example
-```
-lm_eval --model hf \
-    --model_args pretrained=EleutherAI/gpt-j-6B \
-    --tasks hellaswag \
-    --device cuda:0 \
-    --batch_size 8
+python3 main.py --language "Macedonian" --model gpt2 --tasks hellaswag --batch_size 1
 ```
 
 
