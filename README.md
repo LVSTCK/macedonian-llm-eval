@@ -9,6 +9,26 @@ This repository is adapted from the original work by Aleksa Gordić. If you find
 
 You can find the Macedonian LLM eval dataset [on HuggingFace](TODO). For more details on how the dataset was built see [this technical report](TODO) TODO. The datase was translated from Serbian to Macedonian using the Google Translate API. The Serbian dataset was selected as the source instead of English because Serbian and Macedonian are closer from a linguistic standpoint, making Serbian a better starting point for translation. Additionally, the Serbian dataset was refined using GPT-4, which, according to the original report, significantly improved the quality of the translation. Note that this is an assumption that needs further validation (quantitative).. a small quality check was conducted on the translated Macedonian dataset, and the results were deemed to be of good quality.
 
+## Evaluation
+
+If needed, you can extend the [script](https://huggingface.co/datasets/LVSTCK/macedonian-llm-eval/blob/main/macedonian-llm-eval.py) to support additional datasets. If you choose to do so, we encourage you to open a pull request (PR). For example, if you translate additional benchmarks, such as PubmedQA, from English to Macedonian and want to include it in this evaluation framework, you should first modify the corresponding evaluation script in lm_eval/tasks/<dataset_name>.py. For guidance, refer to the implementations for existing evaluations (e.g., ARC, SuperGLUE, HellaSwag, NQOpen, OpenBookQA).
+
+To run the evaluation using the current version of [macedonian-llm-eval](https://huggingface.co/datasets/LVSTCK/macedonian-llm-eval) you can follow the steps below:
+
+### Prerequisites
+Before running the evaluation, ensure you have installed the necessary dependencies:
+
+```bash
+pip install -e .
+```
+
+### Run Evaluation
+To evaluate a specific language model on a specific task run:
+```
+python3 main.py --language "Macedonian" --model gpt2 --tasks hellaswag --batch_size 1
+```
+
+
 ## Translation (optional; In case you want to translate any other dataset) 
 
 * running this this will eat your google cloud credits or will bill you if you're already in the billing mode (this happens after you spend free credits and then deliberately enable billing again).
@@ -107,24 +127,6 @@ First let's setup a minimal Python program that makes sure you can run Google Tr
     python translate.py
     ```
 
-## Evaluation
-
-If needed, you can extend the [script](https://huggingface.co/datasets/LVSTCK/macedonian-llm-eval/blob/main/macedonian-llm-eval.py) to support additional datasets. If you choose to do so, we encourage you to open a pull request (PR). For example, if you translate additional benchmarks, such as PubmedQA, from English to Macedonian and want to include it in this evaluation framework, you should first modify the corresponding evaluation script in lm_eval/tasks/<dataset_name>.py. For guidance, refer to the implementations for existing evaluations (e.g., ARC, SuperGLUE, HellaSwag, NQOpen, OpenBookQA).
-
-To run the evaluation using the current version of [macedonian-llm-eval](https://huggingface.co/datasets/LVSTCK/macedonian-llm-eval) you can follow the steps below:
-
-### Prerequisites
-Before running the evaluation, ensure you have installed the necessary dependencies:
-
-```bash
-pip install -e .
-```
-
-### Run Evaluation
-To evaluate a specific language model on a specific task run:
-```
-python3 main.py --language "Macedonian" --model gpt2 --tasks hellaswag --batch_size 1
-```
 
 
 ## How to Contribute?
