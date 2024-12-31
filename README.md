@@ -142,14 +142,3 @@ lm_eval --model hf \
 ## License
 
 Apache 2.0
-
-## Citation
-
-```
-@article{macedonian-llm-eval,
-  author    = "Krsteski Stefan, Matea Tashkovska, Borjan Sazdov",
-  title     = "Macedonian LLM Eval",
-  year      = "2025"
-  howpublished = {\url{https://huggingface.co/LVSTCK}},
-}
-```
