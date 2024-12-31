@@ -139,6 +139,35 @@ lm_eval --model hf \
     --batch_size 8
 ```
 
+
+## How to Contribute?
+
+We welcome contributions to the Macedonian LLM Eval! If you'd like to contribute, here’s how you can get involved:
+
+1. **Translate Popular Benchmarks**:  
+   - Identify benchmarks that have not yet been translated into Macedonian. For example, PubmedQA, SQuAD, or any other popular datasets.  
+   - Translate the dataset into Macedonian using appropriate tools or methods (e.g., Google Translate API).  
+
+2. **Fork and Modify the Repository**:  
+   - Fork this repo.  
+   - Modify the necessary parts of the repository to support the new dataset. This includes:  
+     - Updating the evaluation script (`lm_eval/tasks/<dataset_name>.py`) to include the new benchmark.  
+     - Refer to existing implementations (e.g., ARC, SuperGLUE, HellaSwag) for guidance on how to implement evaluation logic.  
+
+3. **Update and Modify the Script**:  
+   - Edit the [evaluation script](https://huggingface.co/datasets/LVSTCK/macedonian-llm-eval/blob/main/macedonian-llm-eval.py) to include the new benchmark.  
+   - Ensure all changes are tested and documented.  
+
+4. **Open a PR**:  
+   - Open a PR to submit your changes.  
+   - In your PR description, detail the following:  
+     - The benchmark you translated.  
+     - The modifications you made to the code.  
+     - How your changes were tested.  
+   - If applicable, attach the modified evaluation script to your PR.  
+
+By following these steps, you can help expand the Macedonian LLM Eval project and contribute to advancing the evaluation of Macedonian-language models. Thank you for your support!
+
 ## License
 
 Apache 2.0
