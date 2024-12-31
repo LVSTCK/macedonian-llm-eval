@@ -11,7 +11,7 @@ You can find the Macedonian LLM eval dataset [on HuggingFace](TODO). For more de
 
 ## Evaluation
 
-If needed, you can extend the [script](https://huggingface.co/datasets/LVSTCK/macedonian-llm-eval/blob/main/macedonian-llm-eval.py) to support additional datasets. If you choose to do so, we encourage you to open a pull request (PR). For example, if you translate additional benchmarks, such as PubmedQA, from English to Macedonian and want to include it in this evaluation framework, you should first modify the corresponding evaluation script in lm_eval/tasks/<dataset_name>.py. For guidance, refer to the implementations for existing evaluations (e.g., ARC, SuperGLUE, HellaSwag, NQOpen, OpenBookQA).
+If needed, you can extend the [script](https://huggingface.co/datasets/LVSTCK/macedonian-llm-eval/blob/main/macedonian-llm-eval.py) to support additional datasets. If you choose to do so, we encourage you to open a PR. For example, if you translate additional benchmarks, such as PubmedQA, from English to Macedonian and want to include it in this evaluation framework, you should first modify the corresponding evaluation script in lm_eval/tasks/<dataset_name>.py. For guidance, refer to the implementations for existing evaluations (e.g., ARC, SuperGLUE, HellaSwag, NQOpen, OpenBookQA).
 
 To run the evaluation using the current version of [macedonian-llm-eval](https://huggingface.co/datasets/LVSTCK/macedonian-llm-eval) you can follow the steps below:
 
