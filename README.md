@@ -2,16 +2,12 @@
 
 This repository is adapted from the original work by Aleksa Gordić. If you find this work useful, please consider citing or acknowledging the original source.
 
-## What is currently covered: TODO
+## What is currently covered:
 * Common sense reasoning: `Hellaswag`, `Winogrande`, `PIQA`, `OpenbookQA`, `ARC-Easy`, `ARC-Challenge`
-* World knowledge: `NaturalQuestions`, `TriviaQA`
+* World knowledge: `NaturalQuestions`
 * Reading comprehension: `BoolQ`
 
-You can find the Serbian LLM eval dataset [on HuggingFace](TODO). For more details on how the dataset was built see [this technical report](TODO) TODO.
-
-Contact: !!! TODO
-
-In Macedonian: TODO
+You can find the Macedonian LLM eval dataset [on HuggingFace](TODO). For more details on how the dataset was built see [this technical report](TODO) TODO. The datase was translated from Serbian to Macedonian using the Google Translate API. The Serbian dataset was selected as the source instead of English because Serbian and Macedonian are closer from a linguistic standpoint, making Serbian a better starting point for translation. Additionally, the Serbian dataset was refined using GPT-4, which, according to the original report, significantly improved the quality of the translation. Note that this is an assumption that needs further validation (quantitative).. a small quality check was conducted on the translated Macedonian dataset, and the results were deemed to be of good quality.
 
 ## IMPORTANT
 
@@ -95,28 +91,21 @@ First let's setup a minimal Python program that makes sure you can run Google Tr
 
     d.) Run  `pip install google-cloud-translate`
 
-That's it! After that just create a `test.py` Python file with the following code and run with `Run and Debug` option in VS code after creating the launch.json file:
 
-```Python
-from google.cloud import translate
+5. To run translation following these steps: 
 
-client = translate.TranslationServiceClient()
-location = "global"
-project_id="<your project id from above>"
-parent = f"projects/{project_id}/locations/{location}"
+    a.) Download the Serbian LLM evaluation dataset [Serbian LLM Eval](https://huggingface.co/datasets/gordicaleksa/serbian-llm-eval-v1/tree/main), or any other dataset of choice (just make sure to change the source language in translate.py - maybe the logic as well). 
 
-response = client.translate_text(
-    request={
-        "parent": parent,
-        "contents": ["How do you do? Translate this."],
-        "mime_type": "text/plain",
-        "source_language_code": "en-US",
-        "target_language_code": "mk",
-    }
-)
-value_translated = response.translations[0].translated_text
-print(value_translated)
-```
+    b.) Place the dataset in a data/ folder.
+
+    c.) Navigate to the translate/ directory.
+
+    d.) Set up the `config.py` file.
+
+    e.) Run the translation script:
+    ```bash
+    python translate.py
+    ```
 
 ## License
 
@@ -125,5 +114,9 @@ Apache 2.0
 ## Citation
 
 ```
-TODO
-```
+@article{macedonian-llm-eval,
+  author    = "Krsteski Stefan, Matea Tashkovska, Borjan Sazdov",
+  title     = "Macedonian LLM Eval",
+  year      = "2025"
+  howpublished = {\url{https://huggingface.co/LVSTCK}},
+}```
