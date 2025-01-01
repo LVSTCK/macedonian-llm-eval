@@ -3,7 +3,9 @@
 This repository is adapted from the original work by Aleksa Gordić. If you find this work useful, please consider citing or acknowledging the original source.
 
 ## What is currently covered:
+## What is currently covered:
 * Common sense reasoning: `Hellaswag`, `Winogrande`, `PIQA`, `OpenbookQA`, `ARC-Easy`, `ARC-Challenge`
+* World knowledge: `NaturalQuestions`
 * World knowledge: `NaturalQuestions`
 * Reading comprehension: `BoolQ`
 
@@ -16,8 +18,13 @@ If needed, you can extend the [script](https://huggingface.co/datasets/LVSTCK/ma
 To run the evaluation using the current version of [macedonian-llm-eval](https://huggingface.co/datasets/LVSTCK/macedonian-llm-eval) you can follow the steps below:
 
 ### Prerequisites
-Before running the evaluation, ensure you have installed the necessary dependencies:
+Before running the evaluation, ensure you have installed the necessary dependencies. First create an environment, e.g:
 
+```bash
+conda create -n mk_eval python==3.10
+```
+
+Then run: 
 ```bash
 pip install -e .
 ```
@@ -25,12 +32,12 @@ pip install -e .
 ### Run Evaluation
 To evaluate a specific language model on a specific task run:
 ```
-python3 main.py --language "Macedonian" --model gpt2 --tasks hellaswag --batch_size 1
+python3 main.py --language "Macedonian" --model gpt2 --tasks hellaswag,piqa --batch_size 1
 ```
 
 Note that gpt is already supported in the lm_eval; if you wish to run a huggingface model then run:
 ```
-python3 main.py --language "Macedonian" --model hf --model_args "pretrained=EleutherAI/gpt-neo-125m" --tasks hellaswag --batch_size 1
+python3 main.py --language "Macedonian" --model hf --model_args "pretrained=EleutherAI/gpt-neo-125m" --tasks hellaswag,piqa --batch_size 1
 ```
 
 
@@ -116,6 +123,51 @@ First let's setup a minimal Python program that makes sure you can run Google Tr
 
     d.) Run  `pip install google-cloud-translate`
 
+
+5. To run translation following these steps: 
+
+    a.) Download the Serbian LLM evaluation dataset [Serbian LLM Eval](https://huggingface.co/datasets/gordicaleksa/serbian-llm-eval-v1/tree/main), or any other dataset of choice (just make sure to change the source language in translate.py - maybe the logic as well). 
+
+    b.) Place the dataset in a data/ folder.
+
+    c.) Navigate to the translate/ directory.
+
+    d.) Set up the `config.py` file.
+
+    e.) Run the translation script:
+    ```bash
+    python translate.py
+    ```
+
+
+
+## How to Contribute?
+
+We welcome contributions to the Macedonian LLM Eval! If you'd like to contribute, here’s how you can get involved:
+
+1. **Translate Popular Benchmarks**:  
+   - Identify benchmarks that have not yet been translated into Macedonian. For example, PubmedQA, SQuAD, or any other popular datasets.  
+   - Translate the dataset into Macedonian using appropriate tools or methods (e.g., Google Translate API).  
+
+2. **Fork and Modify the Repository**:  
+   - Fork this repo.  
+   - Modify the necessary parts of the repository to support the new dataset. This includes:  
+     - Updating the evaluation script (`lm_eval/tasks/<dataset_name>.py`) to include the new benchmark.  
+     - Refer to existing implementations (e.g., ARC, SuperGLUE, HellaSwag) for guidance on how to implement evaluation logic.  
+
+3. **Update and Modify the Script**:  
+   - Edit the [evaluation script](https://huggingface.co/datasets/LVSTCK/macedonian-llm-eval/blob/main/macedonian-llm-eval.py) to include the new benchmark.  
+   - Ensure all changes are tested and documented.  
+
+4. **Open a PR**:  
+   - Open a PR to submit your changes.  
+   - In your PR description, detail the following:  
+     - The benchmark you translated.  
+     - The modifications you made to the code.  
+     - How your changes were tested.  
+   - If applicable, attach the modified evaluation script to your PR.  
+
+By following these steps, you can help expand the Macedonian LLM Eval project and contribute to advancing the evaluation of Macedonian-language models. Thank you for your support!
 
 5. To run translation following these steps: 
 
