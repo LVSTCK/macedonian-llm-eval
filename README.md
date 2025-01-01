@@ -161,8 +161,6 @@ We welcome contributions to the Macedonian LLM Eval! If you'd like to contribute
      - How your changes were tested.  
    - If applicable, attach the modified evaluation script to your PR.  
 
-By following these steps, you can help expand the Macedonian LLM Eval project and contribute to advancing the evaluation of Macedonian-language models. Thank you for your support!
-
 ## License
 
 Apache 2.0
