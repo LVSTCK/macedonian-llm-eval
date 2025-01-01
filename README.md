@@ -2,18 +2,39 @@
 
 This repository is adapted from the original work by Aleksa Gordić. If you find this work useful, please consider citing or acknowledging the original source.
 
-## What is currently covered: TODO
+## What is currently covered:
 * Common sense reasoning: `Hellaswag`, `Winogrande`, `PIQA`, `OpenbookQA`, `ARC-Easy`, `ARC-Challenge`
-* World knowledge: `NaturalQuestions`, `TriviaQA`
+* World knowledge: `NaturalQuestions`
 * Reading comprehension: `BoolQ`
 
-You can find the Serbian LLM eval dataset [on HuggingFace](TODO). For more details on how the dataset was built see [this technical report](TODO) TODO.
+You can find the Macedonian LLM eval dataset [on HuggingFace](TODO). For more details on how the dataset was built see [this technical report](TODO) TODO. The datase was translated from Serbian to Macedonian using the Google Translate API. The Serbian dataset was selected as the source instead of English because Serbian and Macedonian are closer from a linguistic standpoint, making Serbian a better starting point for translation. Additionally, the Serbian dataset was refined using GPT-4, which, according to the original report, significantly improved the quality of the translation. Note that this is an assumption that needs further validation (quantitative).. a small quality check was conducted on the translated Macedonian dataset, and the results were deemed to be of good quality.
 
-Contact: !!! TODO
+## Evaluation
 
-In Macedonian: TODO
+If needed, you can extend the [script](https://huggingface.co/datasets/LVSTCK/macedonian-llm-eval/blob/main/macedonian-llm-eval.py) to support additional datasets. If you choose to do so, we encourage you to open a PR. For example, if you translate additional benchmarks, such as PubmedQA, from English to Macedonian and want to include it in this evaluation framework, you should first modify the corresponding evaluation script in lm_eval/tasks/<dataset_name>.py. For guidance, refer to the implementations for existing evaluations (e.g., ARC, SuperGLUE, HellaSwag, NQOpen, OpenBookQA).
 
-## IMPORTANT
+To run the evaluation using the current version of [macedonian-llm-eval](https://huggingface.co/datasets/LVSTCK/macedonian-llm-eval) you can follow the steps below:
+
+### Prerequisites
+Before running the evaluation, ensure you have installed the necessary dependencies:
+
+```bash
+pip install -e .
+```
+
+### Run Evaluation
+To evaluate a specific language model on a specific task run:
+```
+python3 main.py --language "Macedonian" --model gpt2 --tasks hellaswag --batch_size 1
+```
+
+Note that gpt is already supported in the lm_eval; if you wish to run a huggingface model then run:
+```
+python3 main.py --language "Macedonian" --model hf --model_args "pretrained=EleutherAI/gpt-neo-125m" --tasks hellaswag --batch_size 1
+```
+
+
+## Translation (optional; In case you want to translate any other dataset) 
 
 * running this this will eat your google cloud credits or will bill you if you're already in the billing mode (this happens after you spend free credits and then deliberately enable billing again).
 
@@ -95,35 +116,52 @@ First let's setup a minimal Python program that makes sure you can run Google Tr
 
     d.) Run  `pip install google-cloud-translate`
 
-That's it! After that just create a `test.py` Python file with the following code and run with `Run and Debug` option in VS code after creating the launch.json file:
 
-```Python
-from google.cloud import translate
+5. To run translation following these steps: 
 
-client = translate.TranslationServiceClient()
-location = "global"
-project_id="<your project id from above>"
-parent = f"projects/{project_id}/locations/{location}"
+    a.) Download the Serbian LLM evaluation dataset [Serbian LLM Eval](https://huggingface.co/datasets/gordicaleksa/serbian-llm-eval-v1/tree/main), or any other dataset of choice (just make sure to change the source language in translate.py - maybe the logic as well). 
 
-response = client.translate_text(
-    request={
-        "parent": parent,
-        "contents": ["How do you do? Translate this."],
-        "mime_type": "text/plain",
-        "source_language_code": "en-US",
-        "target_language_code": "mk",
-    }
-)
-value_translated = response.translations[0].translated_text
-print(value_translated)
-```
+    b.) Place the dataset in a data/ folder.
+
+    c.) Navigate to the translate/ directory.
+
+    d.) Set up the `config.py` file.
+
+    e.) Run the translation script:
+    ```bash
+    python translate.py
+    ```
+
+
+
+## How to Contribute?
+
+We welcome contributions to the Macedonian LLM Eval! If you'd like to contribute, here’s how you can get involved:
+
+1. **Translate Popular Benchmarks**:  
+   - Identify benchmarks that have not yet been translated into Macedonian. For example, PubmedQA, SQuAD, or any other popular datasets.  
+   - Translate the dataset into Macedonian using appropriate tools or methods (e.g., Google Translate API).  
+
+2. **Fork and Modify the Repository**:  
+   - Fork this repo.  
+   - Modify the necessary parts of the repository to support the new dataset. This includes:  
+     - Updating the evaluation script (`lm_eval/tasks/<dataset_name>.py`) to include the new benchmark.  
+     - Refer to existing implementations (e.g., ARC, SuperGLUE, HellaSwag) for guidance on how to implement evaluation logic.  
+
+3. **Update and Modify the Script**:  
+   - Edit the [evaluation script](https://huggingface.co/datasets/LVSTCK/macedonian-llm-eval/blob/main/macedonian-llm-eval.py) to include the new benchmark.  
+   - Ensure all changes are tested and documented.  
+
+4. **Open a PR**:  
+   - Open a PR to submit your changes.  
+   - In your PR description, detail the following:  
+     - The benchmark you translated.  
+     - The modifications you made to the code.  
+     - How your changes were tested.  
+   - If applicable, attach the modified evaluation script to your PR.  
+
+By following these steps, you can help expand the Macedonian LLM Eval project and contribute to advancing the evaluation of Macedonian-language models. Thank you for your support!
 
 ## License
 
 Apache 2.0
-
-## Citation
-
-```
-TODO
-```
