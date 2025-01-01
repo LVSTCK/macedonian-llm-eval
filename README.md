@@ -47,7 +47,7 @@ python3 main.py --language "Macedonian" --model hf --model_args "pretrained=Eleu
 
 * if this is the first time you're creating a gcloud project you'll have 300$ of free credits!
 
-## Prerequisites
+### Prerequisites
 
 Before you begin, ensure you meet the following requirements:
 
@@ -90,7 +90,7 @@ Before you begin, ensure you meet the following requirements:
 
 4. Follow the instructions below on WSL.
 
-## Instructions for translatin from Serbian into Macedonian
+## Instructions for translating from Serbian into Macedonian
 
 First let's setup a minimal Python program that makes sure you can run Google Translate on your local machine.
 
