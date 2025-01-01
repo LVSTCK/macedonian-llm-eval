@@ -16,8 +16,13 @@ If needed, you can extend the [script](https://huggingface.co/datasets/LVSTCK/ma
 To run the evaluation using the current version of [macedonian-llm-eval](https://huggingface.co/datasets/LVSTCK/macedonian-llm-eval) you can follow the steps below:
 
 ### Prerequisites
-Before running the evaluation, ensure you have installed the necessary dependencies:
+Before running the evaluation, ensure you have installed the necessary dependencies. First create an environment, e.g:
 
+```bash
+conda create -n mk_eval python==3.10
+```
+
+Then run: 
 ```bash
 pip install -e .
 ```
@@ -25,12 +30,12 @@ pip install -e .
 ### Run Evaluation
 To evaluate a specific language model on a specific task run:
 ```
-python3 main.py --language "Macedonian" --model gpt2 --tasks hellaswag --batch_size 1
+python3 main.py --language "Macedonian" --model gpt2 --tasks hellaswag,piqa --batch_size 1
 ```
 
 Note that gpt is already supported in the lm_eval; if you wish to run a huggingface model then run:
 ```
-python3 main.py --language "Macedonian" --model hf --model_args "pretrained=EleutherAI/gpt-neo-125m" --tasks hellaswag --batch_size 1
+python3 main.py --language "Macedonian" --model hf --model_args "pretrained=EleutherAI/gpt-neo-125m" --tasks hellaswag,piqa --batch_size 1
 ```
 
 
