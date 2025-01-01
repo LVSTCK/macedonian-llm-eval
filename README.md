@@ -5,7 +5,6 @@ This repository is adapted from the original work by Aleksa Gordić. If you find
 ## What is currently covered:
 * Common sense reasoning: `Hellaswag`, `Winogrande`, `PIQA`, `OpenbookQA`, `ARC-Easy`, `ARC-Challenge`
 * World knowledge: `NaturalQuestions`
-* World knowledge: `NaturalQuestions`
 * Reading comprehension: `BoolQ`
 
 You can find the Macedonian LLM eval dataset [on HuggingFace](TODO). For more details on how the dataset was built see [this technical report](TODO) TODO. The datase was translated from Serbian to Macedonian using the Google Translate API. The Serbian dataset was selected as the source instead of English because Serbian and Macedonian are closer from a linguistic standpoint, making Serbian a better starting point for translation. Additionally, the Serbian dataset was refined using GPT-4, which, according to the original report, significantly improved the quality of the translation. Note that this is an assumption that needs further validation (quantitative).. a small quality check was conducted on the translated Macedonian dataset, and the results were deemed to be of good quality.
