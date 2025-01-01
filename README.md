@@ -11,7 +11,7 @@ You can find the Macedonian LLM eval dataset [on HuggingFace](TODO). For more de
 
 ## Evaluation
 
-If needed, you can extend the [script](https://huggingface.co/datasets/LVSTCK/macedonian-llm-eval/blob/main/macedonian-llm-eval.py) to support additional datasets. If you choose to do so, we encourage you to open a PR. For example, if you translate additional benchmarks, such as PubmedQA, from English to Macedonian and want to include it in this evaluation framework, you should first modify the corresponding evaluation script in lm_eval/tasks/<dataset_name>.py. For guidance, refer to the implementations for existing evaluations (e.g., ARC, SuperGLUE, HellaSwag, NQOpen, OpenBookQA).
+If needed, you can extend the [script](https://huggingface.co/datasets/LVSTCK/macedonian-llm-eval/blob/main/macedonian-llm-eval.py) to support additional datasets. If you choose to do so, we encourage you to open a PR. For example, if you translate additional benchmarks, such as PubmedQA, from English to Macedonian and want to include it in this evaluation framework, you should first modify the corresponding evaluation script in lm_eval/tasks/<dataset_name>.py. For guidance, refer to the implementations for existing evaluations (e.g., ARC, SuperGLUE, HellaSwag, NQOpen, OpenBookQA) - more details in the "How to Contribute?" section below. 
 
 To run the evaluation using the current version of [macedonian-llm-eval](https://huggingface.co/datasets/LVSTCK/macedonian-llm-eval) you can follow the steps below:
 
@@ -90,7 +90,7 @@ Before you begin, ensure you meet the following requirements:
 
 4. Follow the instructions below on WSL.
 
-## Instructions for translating lm harness eval from English into Slovenian
+## Instructions for translatin from Serbian into Macedonian
 
 First let's setup a minimal Python program that makes sure you can run Google Translate on your local machine.
 
@@ -120,8 +120,6 @@ First let's setup a minimal Python program that makes sure you can run Google Tr
     c.) Run `conda activate sr_mk_translate`
 
     d.) Run  `pip install google-cloud-translate`
-
-
 5. To run translation following these steps: 
 
     a.) Download the Serbian LLM evaluation dataset [Serbian LLM Eval](https://huggingface.co/datasets/gordicaleksa/serbian-llm-eval-v1/tree/main), or any other dataset of choice (just make sure to change the source language in translate.py - maybe the logic as well). 
