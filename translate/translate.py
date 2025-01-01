@@ -50,6 +50,18 @@ class DatasetTranslator:
         translated = self.translate_text(template)
         # Remove placeholder
         return translated.replace("_____", "").strip()
+    
+    def preprocess_underscore(self, data: Dict, to_translate: bool = True) -> Dict:
+        """Preprocess data by replacing underscores with placeholders or vice versa."""
+        result = data.copy()
+
+        if 'sentence' in data:
+            if to_translate:
+                result['sentence'] = data['sentence'].replace('_', '_____')
+            else:
+                result['sentence'] = data['sentence'].replace('_____','_')
+        
+        return result
 
     def translate_choices(self, choices: List[str]) -> List[str]:
         return [self.translate_text(choice) for choice in choices]
@@ -98,12 +110,18 @@ class DatasetTranslator:
             for line_num, line in enumerate(infile, 1):
                 try:
                     data = json.loads(line)
-                    
+
+                    if config.get('handle_underscore', False):
+                        data = self.preprocess_underscore(data)
+
                     if config.get('use_template', False):
                         translated_data = self.process_template_dataset(data)
                     else:
                         translated_data = self.process_normal_dataset(data, config['fields'])
-                    
+
+                    if config.get('handle_underscore', False):
+                        translated_data = self.preprocess_underscore(translated_data, to_translate=False)
+
                     outfile.write(json.dumps(translated_data, ensure_ascii=False) + '\n')
                     processed_count += 1
                     
