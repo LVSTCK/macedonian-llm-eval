@@ -20,6 +20,7 @@ Before running the evaluation, ensure you have installed the necessary dependenc
 
 ```bash
 conda create -n mk_eval python==3.10
+conda activate mk_eval              
 ```
 
 Then run: 
@@ -30,14 +31,10 @@ pip install -e .
 ### Run Evaluation
 To evaluate a specific language model on a specific task run:
 ```
-python3 main.py --language "Macedonian" --model gpt2 --tasks hellaswag,piqa --batch_size 1
+python3 main.py --language "Macedonian" --model hf-causal-experimental --model_args "pretrained=microsoft/Phi-3.5-mini-instruct" --tasks arc_challenge,arc_easy,boolq,hellaswag,openbookqa,piqa,winogrande --batch_size 8 --output_path "results_eval"
 ```
 
-Note that gpt is already supported in the lm_eval; if you wish to run a huggingface model then run:
-```
-python3 main.py --language "Macedonian" --model hf --model_args "pretrained=EleutherAI/gpt-neo-125m" --tasks hellaswag,piqa --batch_size 1
-```
-
+*Info: You can run the evaluation for Serbian and Slovenian as well, just swap Macedonian with either one of them.* 
 
 ## Translation (optional; In case you want to translate any other dataset) 
 
@@ -160,6 +157,12 @@ We welcome contributions to the Macedonian LLM Eval! If you'd like to contribute
      - The modifications you made to the code.  
      - How your changes were tested.  
    - If applicable, attach the modified evaluation script to your PR.  
+
+
+## TODOs
+
+- ⬜️ Add COPA-MK to the eval (https://huggingface.co/datasets/classla/COPA-MK)
+
 
 ## License
 

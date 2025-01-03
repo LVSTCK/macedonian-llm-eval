@@ -41,6 +41,9 @@ class OpenBookQA(MultipleChoiceTask):
         elif language == "Slovenian":
             self.DATASET_PATH = "gordicaleksa/slovenian-llm-eval-v0"
             self.DATASET_NAME = "openbookqa"
+        elif language == "Macedonian":
+            self.DATASET_PATH = "LVSTCK/macedonian-llm-eval"
+            self.DATASET_NAME = "openbookqa"
         super().__init__(**kwargs)
 
     def has_training_docs(self):
@@ -64,7 +67,7 @@ class OpenBookQA(MultipleChoiceTask):
         return map(self._process_doc, self.dataset["test"])
 
     def _process_doc(self, doc):
-        if self._language in ["Serbian", "Slovenian"]:
+        if self._language in ["Serbian", "Slovenian", "Macedonian"]:
             return {
                 "query": doc["query"],
                 "choices": doc["choices"],
