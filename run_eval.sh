@@ -2,7 +2,7 @@
 
 TASKS="arc_challenge,arc_easy,boolq,hellaswag,openbookqa,piqa,winogrande,nq_open"
 BATCH_SIZE=8
-LANGUAGE="Macedonian"
+LANGUAGE="Macedonian" # Serbian, Slovenian
 
 python3 main.py --language "$LANGUAGE" --model hf-causal-experimental --model_args "pretrained=trajkovnikola/MKLLM-7B-Instruct" --tasks $TASKS --batch_size $BATCH_SIZE --output_path "results_eval_mkllm"
 python3 main.py --language "$LANGUAGE" --model hf-causal-experimental --model_args "pretrained=mistralai/Ministral-8B-Instruct-2410" --tasks $TASKS --batch_size $BATCH_SIZE --output_path "results_eval_mistral-8b-instruct-2410"
