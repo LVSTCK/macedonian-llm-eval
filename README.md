@@ -131,6 +131,21 @@ First let's setup a minimal Python program that makes sure you can run Google Tr
     ```bash
     python translate.py
     ```
+---
+
+## Evaluation Results (January 4, 2025)
+
+| Model                                    | Version | Multilingual Support | Macedonian Explicit Support | ARC Easy           | ARC Challenge      | Bool Q            | HellaSwag         | Openbook QA       | PIQA              | NQ Open          | WinoGrande       | Notes                                                                 |
+|------------------------------------------|---------|-----------------------|-----------------------------|--------------------|--------------------|-------------------|-------------------|-------------------|-------------------|------------------|------------------|----------------------------------------------------------------------|
+| BLOOM (bigscience/bloomz-7b1)            | 7B      | Yes                   | Yes                         | 0.2774 ± 0.0092    | 0.1800 ± 0.0112    | 0.5028 ± 0.0087   | 0.2664 ± 0.0044   | 0.1580 ± 0.0163   | 0.5316 ± 0.0116   | 0                | 0.4964 ± 0.0141 | NQ is exact match, so the idea is to SFT on train then do eval.      |
+| MKLLM-7B-Instruct (trajkovnikola/MKLLM-7B-Instruct) | 7B      | Yes                   | Yes                         | 0.5034 ± 0.0103    | 0.3003 ± 0.0134    | 0.7878 ± 0.0072   | 0.4328 ± 0.0049   | 0.2940 ± 0.0204   | 0.6420 ± 0.0112   | 0.0432 ± 0.0034 | 0.6148 ± 0.0137 |                                                                      |
+| Phi-3.5-mini (microsoft/Phi-3.5-mini-instruct) | 3.8B    | Partial               | No                          | 0.2887 ± 0.0093    | 0.1877 ± 0.0114    | 0.6028 ± 0.0086   | 0.2634 ± 0.0044   | 0.1640 ± 0.0166   | 0.5256 ± 0.0117   | 0.0025 ± 0.0008 | 0.5193 ± 0.0140 |                                                                      |
+| Mistral (mistralai/Ministral-8B-Instruct-2410) | 7B      | Partial               | No                          | 0.4625 ± 0.0102    | 0.2867 ± 0.0132    | 0.7593 ± 0.0075   | 0.3722 ± 0.0048   | 0.2180 ± 0.0185   | 0.5783 ± 0.0115   | 0.0241 ± 0.0026 | 0.5612 ± 0.0139 |                                                                      |
+| Qwen2.5 (Qwen/Qwen2.5-7B-Instruct)       | 7B      | Partial               | No                          | 0.3906 ± 0.0100    | 0.2534 ± 0.0127    | 0.7789 ± 0.0073   | 0.3390 ± 0.0047   | 0.2160 ± 0.0184   | 0.5598 ± 0.0116   | 0.0042 ± 0.0011 | 0.5351 ± 0.0140 |                                                                      |
+| LLaMA 3 (meta-llama/Llama-3.1-8B-Instruct) | 8B      | Partial               | No                          | 0.4453 ± 0.0102    | 0.2824 ± 0.0132    | 0.7639 ± 0.0074   | 0.3740 ± 0.0048   | 0.2520 ± 0.0194   | 0.5865 ± 0.0115   | 0.0335 ± 0.0030 | 0.5683 ± 0.0139 |                                                                      |
+| LLaMA 3 (meta-llama/Llama-3.2-3B-Instruct) | 3B      | Partial               | No                          | 0.3224 ± 0.0096    | 0.2329 ± 0.0124    | 0.6624 ± 0.0083   | 0.2976 ± 0.0046   | 0.2060 ± 0.0181   | 0.5462 ± 0.0116   | 0.0044 ± 0.0011 | 0.5059 ± 0.0141 |                                                                      |
+
+---
 
 ## How to Contribute?
 
