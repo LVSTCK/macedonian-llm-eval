@@ -178,8 +178,3 @@ We welcome contributions to the Macedonian LLM Eval! If you'd like to contribute
 ## 📝 TODOs
 
 - ⬜️ Add COPA-MK to the eval (https://huggingface.co/datasets/classla/COPA-MK)
-
-
-## License
-
-Apache 2.0
