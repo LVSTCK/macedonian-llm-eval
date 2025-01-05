@@ -1,6 +1,6 @@
 # Macedonian LLM eval 🇲🇰
 
-This repository is adapted from the original work by Aleksa Gordić. If you find this work useful, please consider citing or acknowledging the original source.
+This repository is adapted from the original work by [Aleksa Gordić](https://github.com/gordicaleksa/serbian-llm-eval). If you find this work useful, please consider citing or acknowledging the original source.
 
 ## What is currently covered:
 * Common sense reasoning: `Hellaswag`, `Winogrande`, `PIQA`, `OpenbookQA`, `ARC-Easy`, `ARC-Challenge`
