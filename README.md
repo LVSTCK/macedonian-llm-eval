@@ -2,17 +2,33 @@
 
 This repository is adapted from the original work by [Aleksa Gordić](https://github.com/gordicaleksa/serbian-llm-eval). If you find this work useful, please consider citing or acknowledging the original source.
 
-## What is currently covered:
+## 🎯 What is currently covered:
 * Common sense reasoning: `Hellaswag`, `Winogrande`, `PIQA`, `OpenbookQA`, `ARC-Easy`, `ARC-Challenge`
 * World knowledge: `NaturalQuestions`
 * Reading comprehension: `BoolQ`
 
-You can find the Macedonian LLM eval dataset [on HuggingFace](TODO). For more details on how the dataset was built see [this technical report](TODO) TODO. The datase was translated from Serbian to Macedonian using the Google Translate API. The Serbian dataset was selected as the source instead of English because Serbian and Macedonian are closer from a linguistic standpoint, making Serbian a better starting point for translation. Additionally, the Serbian dataset was refined using GPT-4, which, according to the original report, significantly improved the quality of the translation. Note that this is an assumption that needs further validation (quantitative).. a small quality check was conducted on the translated Macedonian dataset, and the results were deemed to be of good quality.
+You can find the Macedonian LLM eval dataset [on HuggingFace](TODO). The dataset was translated from Serbian to Macedonian using the Google Translate API. The Serbian dataset was selected as the source instead of English because Serbian and Macedonian are closer from a linguistic standpoint, making Serbian a better starting point for translation. Additionally, the Serbian dataset was refined using GPT-4, which, according to the original report, significantly improved the quality of the translation. 
+<p>
+    Quality check was conducted on the translated Macedonian dataset, and the results were deemed to be of good quality.
+</p>
 
-## Evaluation
+---
 
-If needed, you can extend the [script](https://huggingface.co/datasets/LVSTCK/macedonian-llm-eval/blob/main/macedonian-llm-eval.py) to support additional datasets. If you choose to do so, we encourage you to open a PR. For example, if you translate additional benchmarks, such as PubmedQA, from English to Macedonian and want to include it in this evaluation framework, you should first modify the corresponding evaluation script in lm_eval/tasks/<dataset_name>.py. For guidance, refer to the implementations for existing evaluations (e.g., ARC, SuperGLUE, HellaSwag, NQOpen, OpenBookQA) - more details in the "How to Contribute?" section below. 
+## 📊 Latest Results - January 4, 2025
 
+| Model                                    | Version | Multilingual Support | Macedonian Explicit Support | ARC Easy           | ARC Challenge      | Bool Q            | HellaSwag         | Openbook QA       | PIQA              | NQ Open          | WinoGrande       | Notes                                                                 |
+|------------------------------------------|---------|-----------------------|-----------------------------|--------------------|--------------------|-------------------|-------------------|-------------------|-------------------|------------------|------------------|----------------------------------------------------------------------|
+| BLOOM (bigscience/bloomz-7b1)            | 7B      | Yes                   | Yes                         | 0.2774 ± 0.0092    | 0.1800 ± 0.0112    | 0.5028 ± 0.0087   | 0.2664 ± 0.0044   | 0.1580 ± 0.0163   | 0.5316 ± 0.0116   | 0                | 0.4964 ± 0.0141 | NQ is exact match, thats why the score is so low.      |
+|🏆 MKLLM-7B-Instruct (trajkovnikola/MKLLM-7B-Instruct) | 7B      | Yes                   | Yes                         | 0.5034 ± 0.0103    | 0.3003 ± 0.0134    | 0.7878 ± 0.0072   | 0.4328 ± 0.0049   | 0.2940 ± 0.0204   | 0.6420 ± 0.0112   | 0.0432 ± 0.0034 | 0.6148 ± 0.0137 |                                                                      |
+| Phi-3.5-mini (microsoft/Phi-3.5-mini-instruct) | 3.8B    | Partial               | No                          | 0.2887 ± 0.0093    | 0.1877 ± 0.0114    | 0.6028 ± 0.0086   | 0.2634 ± 0.0044   | 0.1640 ± 0.0166   | 0.5256 ± 0.0117   | 0.0025 ± 0.0008 | 0.5193 ± 0.0140 |                                                                      |
+| Mistral (mistralai/Ministral-8B-Instruct-2410) | 7B      | Partial               | No                          | 0.4625 ± 0.0102    | 0.2867 ± 0.0132    | 0.7593 ± 0.0075   | 0.3722 ± 0.0048   | 0.2180 ± 0.0185   | 0.5783 ± 0.0115   | 0.0241 ± 0.0026 | 0.5612 ± 0.0139 |                                                                      |
+| Qwen2.5 (Qwen/Qwen2.5-7B-Instruct)       | 7B      | Partial               | No                          | 0.3906 ± 0.0100    | 0.2534 ± 0.0127    | 0.7789 ± 0.0073   | 0.3390 ± 0.0047   | 0.2160 ± 0.0184   | 0.5598 ± 0.0116   | 0.0042 ± 0.0011 | 0.5351 ± 0.0140 |                                                                      |
+| LLaMA 3 (meta-llama/Llama-3.1-8B-Instruct) | 8B      | Partial               | No                          | 0.4453 ± 0.0102    | 0.2824 ± 0.0132    | 0.7639 ± 0.0074   | 0.3740 ± 0.0048   | 0.2520 ± 0.0194   | 0.5865 ± 0.0115   | 0.0335 ± 0.0030 | 0.5683 ± 0.0139 |                                                                      |
+| LLaMA 3 (meta-llama/Llama-3.2-3B-Instruct) | 3B      | Partial               | No                          | 0.3224 ± 0.0096    | 0.2329 ± 0.0124    | 0.6624 ± 0.0083   | 0.2976 ± 0.0046   | 0.2060 ± 0.0181   | 0.5462 ± 0.0116   | 0.0044 ± 0.0011 | 0.5059 ± 0.0141 |                                                                      |
+
+---
+
+## 📋Evaluation
 To run the evaluation using the current version of [macedonian-llm-eval](https://huggingface.co/datasets/LVSTCK/macedonian-llm-eval) you can follow the steps below:
 
 ### Prerequisites
@@ -36,7 +52,7 @@ python3 main.py --language "Macedonian" --model hf-causal-experimental --model_a
 
 *Info: You can run the evaluation for Serbian and Slovenian as well, just swap Macedonian with either one of them.* 
 
-## Translation (optional; In case you want to translate any other dataset) 
+## 🈂️ (Optional) Translation
 
 * running this this will eat your google cloud credits or will bill you if you're already in the billing mode (this happens after you spend free credits and then deliberately enable billing again).
 
@@ -87,7 +103,7 @@ Before you begin, ensure you meet the following requirements:
 
 4. Follow the instructions below on WSL.
 
-## Instructions for translating from Serbian into Macedonian
+## 📗 Instructions for translating from Serbian into Macedonian
 
 First let's setup a minimal Python program that makes sure you can run Google Translate on your local machine.
 
@@ -131,23 +147,8 @@ First let's setup a minimal Python program that makes sure you can run Google Tr
     ```bash
     python translate.py
     ```
----
 
-## Evaluation Results (January 4, 2025)
-
-| Model                                    | Version | Multilingual Support | Macedonian Explicit Support | ARC Easy           | ARC Challenge      | Bool Q            | HellaSwag         | Openbook QA       | PIQA              | NQ Open          | WinoGrande       | Notes                                                                 |
-|------------------------------------------|---------|-----------------------|-----------------------------|--------------------|--------------------|-------------------|-------------------|-------------------|-------------------|------------------|------------------|----------------------------------------------------------------------|
-| BLOOM (bigscience/bloomz-7b1)            | 7B      | Yes                   | Yes                         | 0.2774 ± 0.0092    | 0.1800 ± 0.0112    | 0.5028 ± 0.0087   | 0.2664 ± 0.0044   | 0.1580 ± 0.0163   | 0.5316 ± 0.0116   | 0                | 0.4964 ± 0.0141 | NQ is exact match, thats why the score is so low.      |
-| MKLLM-7B-Instruct (trajkovnikola/MKLLM-7B-Instruct) | 7B      | Yes                   | Yes                         | 0.5034 ± 0.0103    | 0.3003 ± 0.0134    | 0.7878 ± 0.0072   | 0.4328 ± 0.0049   | 0.2940 ± 0.0204   | 0.6420 ± 0.0112   | 0.0432 ± 0.0034 | 0.6148 ± 0.0137 |                                                                      |
-| Phi-3.5-mini (microsoft/Phi-3.5-mini-instruct) | 3.8B    | Partial               | No                          | 0.2887 ± 0.0093    | 0.1877 ± 0.0114    | 0.6028 ± 0.0086   | 0.2634 ± 0.0044   | 0.1640 ± 0.0166   | 0.5256 ± 0.0117   | 0.0025 ± 0.0008 | 0.5193 ± 0.0140 |                                                                      |
-| Mistral (mistralai/Ministral-8B-Instruct-2410) | 7B      | Partial               | No                          | 0.4625 ± 0.0102    | 0.2867 ± 0.0132    | 0.7593 ± 0.0075   | 0.3722 ± 0.0048   | 0.2180 ± 0.0185   | 0.5783 ± 0.0115   | 0.0241 ± 0.0026 | 0.5612 ± 0.0139 |                                                                      |
-| Qwen2.5 (Qwen/Qwen2.5-7B-Instruct)       | 7B      | Partial               | No                          | 0.3906 ± 0.0100    | 0.2534 ± 0.0127    | 0.7789 ± 0.0073   | 0.3390 ± 0.0047   | 0.2160 ± 0.0184   | 0.5598 ± 0.0116   | 0.0042 ± 0.0011 | 0.5351 ± 0.0140 |                                                                      |
-| LLaMA 3 (meta-llama/Llama-3.1-8B-Instruct) | 8B      | Partial               | No                          | 0.4453 ± 0.0102    | 0.2824 ± 0.0132    | 0.7639 ± 0.0074   | 0.3740 ± 0.0048   | 0.2520 ± 0.0194   | 0.5865 ± 0.0115   | 0.0335 ± 0.0030 | 0.5683 ± 0.0139 |                                                                      |
-| LLaMA 3 (meta-llama/Llama-3.2-3B-Instruct) | 3B      | Partial               | No                          | 0.3224 ± 0.0096    | 0.2329 ± 0.0124    | 0.6624 ± 0.0083   | 0.2976 ± 0.0046   | 0.2060 ± 0.0181   | 0.5462 ± 0.0116   | 0.0044 ± 0.0011 | 0.5059 ± 0.0141 |                                                                      |
-
----
-
-## How to Contribute?
+## 🤝 How to Contribute?
 
 We welcome contributions to the Macedonian LLM Eval! If you'd like to contribute, here’s how you can get involved:
 
@@ -174,7 +175,7 @@ We welcome contributions to the Macedonian LLM Eval! If you'd like to contribute
    - If applicable, attach the modified evaluation script to your PR.  
 
 
-## TODOs
+## 📝 TODOs
 
 - ⬜️ Add COPA-MK to the eval (https://huggingface.co/datasets/classla/COPA-MK)
 
