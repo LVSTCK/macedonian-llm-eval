@@ -9,7 +9,7 @@ This repository is adapted from the original work by [Aleksa Gordić](https://gi
 
 You can find the Macedonian LLM eval dataset [on HuggingFace](TODO). The dataset was translated from Serbian to Macedonian using the Google Translate API. The Serbian dataset was selected as the source instead of English because Serbian and Macedonian are closer from a linguistic standpoint, making Serbian a better starting point for translation. Additionally, the Serbian dataset was refined using GPT-4, which, according to the original report, significantly improved the quality of the translation. 
 <p>
-    Quality check was conducted on the translated Macedonian dataset, and the results were deemed to be of good quality.
+    Quality check was conducted on the translated Macedonian dataset, and the translations were deemed to be of good quality.
 </p>
 
 ---
