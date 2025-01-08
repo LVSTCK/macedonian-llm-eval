@@ -16,7 +16,7 @@ You can find the Macedonian LLM eval dataset [on HuggingFace](https://huggingfac
 
 ## 📊 Latest Results - January 8, 2025
 
-![output](https://github.com/user-attachments/assets/b4607292-da61-4b6b-973c-9e8463a34b6b)
+![output](https://github.com/user-attachments/assets/d644ec36-a1ad-42e4-8c59-4d745106b5f1)
 
 ---
 
