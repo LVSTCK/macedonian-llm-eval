@@ -14,27 +14,24 @@ You can find the Macedonian LLM eval dataset [on HuggingFace](https://huggingfac
 
 ---
 
-## 📊 Latest Results - January 8, 2025
+## 📊 Latest Results - January 16, 2025
 
-![output](https://github.com/user-attachments/assets/d88a90dd-899b-4d24-9d6d-7d72d5f59d94)
+![image](https://github.com/user-attachments/assets/2ed54db9-7f51-499a-b5d1-0e550ea1a9eb)
 
 
 ---
-
-
-| Model                                                                                  | Version | Multilingual Support | Macedonian Explicit Support | ARC Easy              | ARC Challenge         | Bool Q               | HellaSwag            | Openbook QA          | PIQA                 | NQ Open             | WinoGrande          | Notes                                                                 |
-|----------------------------------------------------------------------------------------|---------|-----------------------|-----------------------------|-----------------------|-----------------------|----------------------|----------------------|----------------------|----------------------|---------------------|---------------------|----------------------------------------------------------------------|
-| MKLLM-7B-Instruct [(trajkovnikola/MKLLM-7B-Instruct)](https://huggingface.co/trajkovnikola/MKLLM-7B-Instruct) | 7B      | Yes                   | Yes                         | 0.5034 ± 0.0103   | 0.3003 ± 0.0134   | 0.7878 ± 0.0072  | 0.4328 ± 0.0049  | **0.2940 ± 0.0204**  | 0.6420 ± 0.0112  | 0.0432 ± 0.0034 | **0.6148 ± 0.0137** |                                                                      |
-| BLOOM [(bigscience/bloomz-7b1)](https://huggingface.co/bigscience/bloomz-7b1)          | 7B      | Yes                   | Yes                         | 0.2774 ± 0.0092       | 0.1800 ± 0.0112       | 0.5028 ± 0.0087      | 0.2664 ± 0.0044      | 0.1580 ± 0.0163      | 0.5316 ± 0.0116      | 0                   | 0.4964 ± 0.0141      | NQ is exact match, that's why the score is so low.                     |
-| Phi-3.5-mini [(microsoft/Phi-3.5-mini-instruct)](https://huggingface.co/microsoft/Phi-3.5-mini-instruct)             | 3.8B    | Yes               | No                          | 0.2887 ± 0.0093       | 0.1877 ± 0.0114       | 0.6028 ± 0.0086      | 0.2634 ± 0.0044      | 0.1640 ± 0.0166      | 0.5256 ± 0.0117      | 0.0025 ± 0.0008     | 0.5193 ± 0.0140     |                                                                      |
-| Mistral [(mistralai/Ministral-8B-Instruct-2410)](https://huggingface.co/mistralai/Ministral-8B-Instruct-2410)       | 7B      | Yes               | No                          | 0.4625 ± 0.0102       | 0.2867 ± 0.0132       | 0.7593 ± 0.0075      | 0.3722 ± 0.0048      | 0.2180 ± 0.0185      | 0.5783 ± 0.0115      | 0.0241 ± 0.0026     | 0.5612 ± 0.0139     |                                                                      |
-| Mistral-Nemo [(mistralai/Mistral-Nemo-Instruct-2407)](https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407) | 12B     | Yes               | No                          | 0.4718 ± 0.0102   | 0.3191 ± 0.0134   | 0.8086 ± 0.0072  | 0.3997 ± 0.0049  | 0.2420 ± 0.0185  | 0.6066 ± 0.0112  | 0.0291 ± 0.0034 | 0.6062 ± 0.0137 |                                                                      |
-| Qwen2.5 [(Qwen/Qwen2.5-7B-Instruct)](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct)                                | 7B      | Yes               | No                          | 0.3906 ± 0.0100       | 0.2534 ± 0.0127       | 0.7789 ± 0.0073      | 0.3390 ± 0.0047      | 0.2160 ± 0.0184      | 0.5598 ± 0.0116      | 0.0042 ± 0.0011     | 0.5351 ± 0.0140     |                                                                      |
-| LLaMA 3.1 [(meta-llama/Llama-3.1-8B-Instruct)](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct)               | 8B      | Yes               | No                          | 0.4453 ± 0.0102       | 0.2824 ± 0.0132       | 0.7639 ± 0.0074      | 0.3740 ± 0.0048      | 0.2520 ± 0.0194      | 0.5865 ± 0.0115      | 0.0335 ± 0.0030     | 0.5683 ± 0.0139     |                                                                      |
-| LLaMA 3.2 [(meta-llama/Llama-3.2-3B-Instruct)](https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct)               | 3B      | Yes               | No                          | 0.3224 ± 0.0096       | 0.2329 ± 0.0124       | 0.6624 ± 0.0083      | 0.2976 ± 0.0046      | 0.2060 ± 0.0181      | 0.5462 ± 0.0116      | 0.0044 ± 0.0011     | 0.5059 ± 0.0141     |                                                                      |
-| **🏆LLaMA 3.3 - 8bit** [(cortecs/Llama-3.3-70B-Instruct-FP8-Dynamic)](cortecs/Llama-3.3-70B-Instruct-FP8-Dynamic)               | 70B      | Yes               | No                          | **0.5808 ± 0.0101**       |  **0.3686 ± 0.0141**       | **0.8511 ± 0.0062**      | **0.4656 ± 0.0050**      | 0.2820 ± 0.0201      | **0.6600 ± 0.0111**      | **0.0878 ± 0.0047**     | 0.6093 ± 0.0137     |                                                                      |
-
-
+| Model                                                                                                                                       | Version | ARC Easy | ARC Challenge | Bool Q | HellaSwag | Openbook QA | PIQA   | NQ Open | WinoGrande |
+|---------------------------------------------------------------------------------------------------------------------------------------------|---------|----------|---------------|--------|-----------|-------------|--------|---------|------------|
+| [MKLLM-7B-Instruct](https://huggingface.co/trajkovnikola/MKLLM-7B-Instruct)                                                                | 7B      | 0.5034   | 0.3003        | 0.7878 | 0.4328    | 0.2940      | 0.6420 | 0.0432  | 0.6148     |
+| [BLOOM](https://huggingface.co/bigscience/bloomz-7b1)                                                                                       | 7B      | 0.2774   | 0.1800        | 0.5028 | 0.2664    | 0.1580      | 0.5316 | 0       | 0.4964     |
+| [Phi-3.5-mini](https://huggingface.co/microsoft/Phi-3.5-mini-instruct)                                                                     | 3.8B    | 0.2887   | 0.1877        | 0.6028 | 0.2634    | 0.1640      | 0.5256 | 0.0025  | 0.5193     |
+| [Mistral](https://huggingface.co/mistralai/Ministral-8B-Instruct-2410)                                                                     | 7B      | 0.4625   | 0.2867        | 0.7593 | 0.3722    | 0.2180      | 0.5783 | 0.0241  | 0.5612     |
+| [Mistral-Nemo](https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407)                                                                | 12B     | 0.4718   | 0.3191        | 0.8086 | 0.3997    | 0.2420      | 0.6066 | 0.0291  | 0.6062     |
+| [Qwen2.5](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct)                                                                                   | 7B      | 0.3906   | 0.2534        | 0.7789 | 0.3390    | 0.2160      | 0.5598 | 0.0042  | 0.5351     |
+| [LLaMA 3.1](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct)                                                                        | 8B      | 0.4453   | 0.2824        | 0.7639 | 0.3740    | 0.2520      | 0.5865 | 0.0335  | 0.5683     |
+| [LLaMA 3.2](https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct)                                                                        | 3B      | 0.3224   | 0.2329        | 0.6624 | 0.2976    | 0.2060      | 0.5462 | 0.0044  | 0.5059     |
+| [🏆LLaMA 3.3 - 8bit](https://huggingface.co/cortecs/Llama-3.3-70B-Instruct-FP8-Dynamic)                                                   | 70B     | **0.5808** | **0.3686**    | **0.8511** | **0.4656** | 0.2820      | 0.6600 | **0.0878** | 0.6093     |
+| [domestic-yak-instruct](https://huggingface.co/LVSTCK/domestic-yak-8B-instruct)                                                          | 8B      | 0.5467   | 0.3362        | 0.7865 | 0.4480    | **0.3020**  | **0.6910** | 0.0457  | **0.6267** |
 
 ---
 
