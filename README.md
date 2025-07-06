@@ -182,7 +182,7 @@ We welcome contributions to the Macedonian LLM Eval! If you'd like to contribute
    - If applicable, attach the modified evaluation script to your PR.  
 
 
-### Citation
+## Citation
 ```
 @article{krsteski2025towards,
   title={Towards Open Foundation Language Model and Corpus for Macedonian: A Low-Resource Language},
