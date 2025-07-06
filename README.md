@@ -182,6 +182,16 @@ We welcome contributions to the Macedonian LLM Eval! If you'd like to contribute
    - If applicable, attach the modified evaluation script to your PR.  
 
 
+### Citation
+```
+@article{krsteski2025towards,
+  title={Towards Open Foundation Language Model and Corpus for Macedonian: A Low-Resource Language},
+  author={Krsteski, Stefan and Tashkovska, Matea and Sazdov, Borjan and Gjoreski, Hristijan and Gerazov, Branislav},
+  journal={arXiv preprint arXiv:2506.09560},
+  year={2025}
+}
+```
+
 ## 📝 TODOs
 
 - ⬜️ Add COPA-MK to the eval (https://huggingface.co/datasets/classla/COPA-MK)
